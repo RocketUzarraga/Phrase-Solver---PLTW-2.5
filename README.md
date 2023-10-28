@@ -1,1 +1,2 @@
-# Phrase-Solver---PLTW-2.5
+# Phrase Solver - PLTW-2.5
+Basically a multiplayer hangman without lives. Each player gets to guess things. If they guess a letter correctly, the display updates and the gain some amount of points. They can also try to solve the full phrase. If they make incorect guesses, they lose their turn. When the phrase is solved, the player with the most points wins.
