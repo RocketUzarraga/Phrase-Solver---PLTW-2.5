@@ -1,11 +1,87 @@
+import java.io.File;
 import java.util.*;
 
 public class Board {
     private List<String> phrases; // An import from a text file?
-    private String fullPhrase;
+    private String phrase;
+    private String solvedPhrase = "";
+    private int currentLetterValue;
+    private Player currentTurn;
 
     public Board() {
-        int rand = (int) (Math.random() * (phrases.size() - 1));
-        fullPhrase = phrases.get(rand);
+        phrase = loadPhrase();
+        setLetterValue();
     }
+
+    /* ---------- provided code, do not modify ---------- */
+    public void setLetterValue() {
+        int randomInt = (int) ((Math.random() * 10) + 1) * 100;
+        currentLetterValue = randomInt;
+    }
+
+    public boolean isSolved(String guess) {
+        if (phrase.equals(guess)) {
+            return true;
+        }
+        return false;
+    }
+
+    // Can i change this pls
+    private String loadPhrase() {
+        String tempPhrase = "";
+
+        int numOfLines = 0;
+        try {
+            Scanner sc = new Scanner(new File("phrases.txt"));
+            while (sc.hasNextLine()) {
+                tempPhrase = sc.nextLine().trim();
+                numOfLines++;
+            }
+        } catch (Exception e) {
+            System.out.println("Error reading or parsing phrases.txt");
+        }
+
+        int randomInt = (int) ((Math.random() * numOfLines) + 1);
+
+        try {
+            int count = 0;
+            Scanner sc = new Scanner(new File("phrases.txt"));
+            while (sc.hasNextLine()) {
+                count++;
+                String temp = sc.nextLine().trim();
+                if (count == randomInt) {
+                    tempPhrase = temp;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error reading or parsing phrases.txt");
+        }
+
+        for (int i = 0; i < tempPhrase.length(); i++) {
+            if (tempPhrase.substring(i, i + 1).equals(" ")) {
+                solvedPhrase += "  ";
+            } else {
+                solvedPhrase += "_ ";
+            }
+        }
+
+        return tempPhrase;
+    }
+
+    public boolean guessLetter(String guess) {
+        boolean foundLetter = false;
+        String newSolvedPhrase = "";
+
+        for (int i = 0; i < phrase.length(); i++) {
+            if (phrase.substring(i, i + 1).equals(guess)) {
+                newSolvedPhrase += guess + " ";
+                foundLetter = true;
+            } else {
+                newSolvedPhrase += solvedPhrase.substring(i * 2, i * 2 + 1) + " ";
+            }
+        }
+        solvedPhrase = newSolvedPhrase;
+        return foundLetter;
+    }
+
 }
