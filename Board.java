@@ -1,6 +1,19 @@
 import java.io.File;
 import java.util.*;
 
+
+/**
+ * A Board class for the Phrase Solver game, which stores the
+ * secret phrase to be guessed, and processes player guesses
+ * and game progress.
+ * 
+ * Date updated: 31 Oct 2023
+ * 
+ * @author Rocket Uzarraga
+ * @author Ryan Ramakrishnan
+ * @version %I%, %G%
+ * @since 1.0
+ */
 public class Board {
     private List<String> phrases; // An import from a text file?
     private String phrase;
@@ -8,9 +21,26 @@ public class Board {
     private int currentLetterValue;
     private Player currentTurn;
 
+    /**
+     * Constructor for Board. Grabs a random phrase from the
+     * phrase.txt file and sets it as the phrase attribute, then
+     * generates a random letter value and sets it to the
+     * 'currentLetterValue' attribute.
+     */
     public Board() {
         phrase = loadPhrase();
         setLetterValue();
+    }
+
+    
+    /**
+     * An accessor method to retrive the current letter value
+     * of a Board object.
+     * 
+     * @return an int representing the current letter guess value
+     */
+    public int getLetterValue() {
+        return currentLetterValue;
     }
 
     /* ---------- provided code, do not modify ---------- */
