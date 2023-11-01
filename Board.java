@@ -97,7 +97,15 @@ public class Board {
 
         return tempPhrase;
     }
-
+    
+    /* Checks to see what letters in the guessed word match the actual phrase
+     * 
+     * Preconditions:
+     *   phrase exists and isn't an empty string or null
+     * Postcondition:
+     *   The instance newSolvedPhrase is populated.
+     *   The instance sovledPhrase is populated.
+     */
     public boolean guessLetter(String guess) {
         boolean foundLetter = false;
         String newSolvedPhrase = "";
