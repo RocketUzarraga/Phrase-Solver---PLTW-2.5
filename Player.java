@@ -52,4 +52,14 @@ public class Player {
         return score;
     }
 
+    
+
+    /**
+     * Set the Player object score attribute to a value
+     * @param s - An int param to set new score to
+     */
+    public void setScore(int s) {
+        score = s;
+    }
+
 }

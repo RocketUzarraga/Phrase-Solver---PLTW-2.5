@@ -43,6 +43,19 @@ public class Board {
         return currentLetterValue;
     }
 
+
+    /**
+     * An accessor method for the solvedPhrase attribute of a
+     * Board object to get a read on the game progress.
+     * 
+     * @return a String representing how much the game progress
+     */
+    public String gameStaus() { 
+        return solvedPhrase;
+    }
+
+
+
     /* ---------- provided code, do not modify ---------- */
     public void setLetterValue() {
         int randomInt = (int) ((Math.random() * 10) + 1) * 100;
@@ -95,7 +108,7 @@ public class Board {
             }
         }
 
-        return tempPhrase;
+        return tempPhrase.toUpperCase();
     }
 
     public boolean guessLetter(String guess) {
