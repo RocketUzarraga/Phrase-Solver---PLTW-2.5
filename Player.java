@@ -61,5 +61,14 @@ public class Player {
     public void setScore(int s) {
         score = s;
     }
+    
+    /**
+     * Set the Player object score name to a string
+     * @param n - A string param to set the name to
+     */
+    
+    public void setPlayer(String n) {
+        name = n;
+    }
 
 }
