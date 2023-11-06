@@ -1,7 +1,19 @@
 import java.util.Scanner;
 
+/**
+ * A class made to run the PhraseSolver game. Codes in replay loops
+ * and game setup.
+ * 
+ * Date updated: 06 Nov 2023
+ * 
+ * @author Rocket Uzarraga
+ * @author Ryan Ramakrishnan
+ * @version %I%, %G%
+ * @since 1.0
+ */
 public class Runner {
     public static void main(String[] args) {
+        // Welcome to the messiest code in the world
         System.out.println("Rules:");
         System.out.println("Each player gets 1 guess per turn.");
         System.out.println("A player can guess the full phrase, or a single letter.");

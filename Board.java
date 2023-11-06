@@ -6,7 +6,7 @@ import java.util.*;
  * secret phrase to be guessed, and processes player guesses
  * and game progress.
  * 
- * Date updated: 31 Oct 2023
+ * Date updated: 06 Nov 2023
  * 
  * @author Rocket Uzarraga
  * @author Ryan Ramakrishnan

@@ -4,7 +4,7 @@ import java.util.*;
  * Phrase Solver, a class to run a game where players guess letters
  * or full phrases in order to correctly discover a secret phrase.
  * 
- * Date updated: 31 Oct 2023
+ * Date updated: 06 Nov 2023
  * 
  * @author Rocket Uzarraga
  * @author Ryan Ramakrishnan
