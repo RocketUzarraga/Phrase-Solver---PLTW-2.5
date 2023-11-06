@@ -62,6 +62,10 @@ class PhraseSolver {
             Player current = players.get(turn);
             // Print game info
             System.out.println(current.getName() + "'s turn. Current money: $" + current.getScore());
+            if (board.getLetterValue() == 0) {
+                System.out.println("You spun to bankruptcy. You lose your turn, AND your money! L BOZO");
+                current.setScore(0);
+            }
             System.out.println("Your wheel spin: $" + board.getLetterValue());
             System.out.println("Guesed letters: " + guessed);
             System.out.println("Game progress: " + board.gameStatus());
