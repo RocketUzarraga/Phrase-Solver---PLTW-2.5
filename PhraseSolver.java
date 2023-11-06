@@ -46,7 +46,7 @@ class PhraseSolver {
         }
         // Set up Board object
         board = new Board();
-        System.out.println("\nWelcome to Phrase Solver (not a Wheel of Fortune ripoff)\n");
+        System.out.println("\nWelcome to Phrase Solver (not a Wheel of Fortune ripoff)");
     }
 
     /**
@@ -58,6 +58,10 @@ class PhraseSolver {
         String guess = "";
         // Game loop. Designed to loop through array list indexes.
         for (int turn = 0; !solved; turn = (turn + 1) % players.size()) {
+            // Line spacing
+            System.out.println("\n");
+            // Set new letter value
+            board.setLetterValue();
             // Change turn
             Player current = players.get(turn);
             // Print game info
@@ -65,6 +69,7 @@ class PhraseSolver {
             if (board.getLetterValue() == 0) {
                 System.out.println("You spun to bankruptcy. You lose your turn, AND your money! L BOZO");
                 current.setScore(0);
+                continue;
             }
             System.out.println("Your wheel spin: $" + board.getLetterValue());
             System.out.println("Guesed letters: " + guessed);
@@ -105,10 +110,6 @@ class PhraseSolver {
                     }
                 }
             }
-            // Line spacing
-            System.out.println("\n");
-            // Set new letter value
-            board.setLetterValue();
 
             // Game solved through single letter guess?
             if (!board.gameStatus().contains("_")) {

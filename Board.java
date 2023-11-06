@@ -53,7 +53,7 @@ public class Board {
 
     /* ---------- provided code, do not modify ---------- */
     public void setLetterValue() {
-        int randomInt = (int) ((Math.random() * 10) + 1) * 100;
+        int randomInt = (int) (Math.random() * 11) * 100;
         currentLetterValue = randomInt;
     }
 
