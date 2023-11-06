@@ -1,7 +1,6 @@
 import java.io.File;
 import java.util.*;
 
-
 /**
  * A Board class for the Phrase Solver game, which stores the
  * secret phrase to be guessed, and processes player guesses
@@ -32,7 +31,6 @@ public class Board {
         setLetterValue();
     }
 
-    
     /**
      * An accessor method to retrive the current letter value
      * of a Board object.
@@ -43,18 +41,15 @@ public class Board {
         return currentLetterValue;
     }
 
-
     /**
      * An accessor method for the solvedPhrase attribute of a
      * Board object to get a read on the game progress.
      * 
      * @return a String representing how much the game progress
      */
-    public String gameStaus() { 
+    public String gameStatus() {
         return solvedPhrase;
     }
-
-
 
     /* ---------- provided code, do not modify ---------- */
     public void setLetterValue() {
@@ -110,14 +105,15 @@ public class Board {
 
         return tempPhrase.toUpperCase();
     }
-    
-    /* Checks to see what letters in the guessed word match the actual phrase
+
+    /*
+     * Checks to see what letters in the guessed word match the actual phrase
      * 
      * Preconditions:
-     *   phrase exists and isn't an empty string or null
+     * phrase exists and isn't an empty string or null
      * Postcondition:
-     *   The instance newSolvedPhrase is populated.
-     *   The instance sovledPhrase is populated.
+     * The instance newSolvedPhrase is populated.
+     * The instance sovledPhrase is populated.
      */
     public boolean guessLetter(String guess) {
         boolean foundLetter = false;

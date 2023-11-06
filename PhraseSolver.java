@@ -64,7 +64,7 @@ class PhraseSolver {
             System.out.println(current.getName() + "'s turn. Current money: $" + current.getScore());
             System.out.println("Your wheel spin: $" + board.getLetterValue());
             System.out.println("Guesed letters: " + guessed);
-            System.out.println("Game progress: " + board.gameStaus());
+            System.out.println("Game progress: " + board.gameStatus());
             System.out.print("Make a guess: ");
 
             // Get user input (strip spaces, uniform letter casing)
@@ -75,8 +75,9 @@ class PhraseSolver {
                 // Guess is correct?
                 if (board.isSolved(guess)) {
                     solved = true;
-                    current.setScore(current.getScore() + board.getLetterValue());
-                    System.out.println("Congrats " + current.getName() + "! You get $" + current.getScore() + "!");
+                    current.setScore(current.getScore() + board.getLetterValue() * 2);
+                    System.out.println(
+                            "You got the phrase, " + current.getName() + "! You earned $" + current.getScore() + "!");
                     // Guess is not correct
                 } else {
                     System.out.println("Your guess was incorrect. Skill issue.");
@@ -104,6 +105,22 @@ class PhraseSolver {
             System.out.println("\n");
             // Set new letter value
             board.setLetterValue();
+
+            // Game solved through single letter guess?
+            if (!board.gameStatus().contains("_")) {
+                Player winner = new Player("");
+                int high = Integer.MIN_VALUE;
+                // Loops to find player with highest score
+                for (Player p : players) {
+                    if (p.getScore() > high) {
+                        high = p.getScore();
+                        winner = p;
+                    }
+                }
+                // Display win message and end game
+                System.out.println(winner.getName() + " has won with $" + winner.getScore() + "!\n");
+                solved = true;
+            }
         }
     }
 

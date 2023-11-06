@@ -2,6 +2,12 @@ import java.util.Scanner;
 
 public class Runner {
     public static void main(String[] args) {
+        System.out.println("Rules:");
+        System.out.println("Each player gets 1 guess per turn.");
+        System.out.println("A player can guess the full phrase, or a single letter.");
+        System.out.println("Guessing the full phrase earns a player double their spin, and wins them the game.");
+        System.out.println("If the phrase is solved with individual letters, the player with the most money wins.\n\n");
+
         boolean replay = true;
         PhraseSolver ps;
         int numPlayers;
